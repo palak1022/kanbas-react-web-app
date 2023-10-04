@@ -3,175 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Assignment</title>
+    <title>Grades</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b4159297e5.js" crossorigin="anonymous"></script>
+    <link href="../index.css"
+    rel="stylesheet"/>
     
 </head>
 <body>
-    <table>
-        <tr valign="top">
-            <td>
-                <ul>
-                    <li><a href="">Account</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="../home.html">Courses</a></li>
-                    <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Inbox</a></li>
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Studio</a></li>
-                    <li><a href="#">Commons</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
-            </td>
-          
-       
-            <td>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="#">Modules</a></li>
-                    <li><a href="#">Piazza</a></li>
-                    <li><a href="#">Zoom Meeting</a></li>
-                    <li><a href="assignments/index.html">Assignments</a></li>
-                    <li><a href="#">Quizzes</a></li>
-                    <li><a href="../grades.html">Grades</a></li>
-                    <li><a href="#">People</a></li>
-                    <li><a href="#">Panopto Video</a></li>
-                    <li><a href="#">Discussions</a></li>
-                    <li><a href="#">Announcements</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Files</a></li>
-                    <li><a href="#">Rubric</a></li>
-                    <li><a href="#">Outcomes</a></li>
-                    <li><a href="#">Collaboration</a></li>
-                    <li><a href="#">Syllabus</a></li>
-                    <li><a href="#">Settings</a></li>
-                   
-                </ul>
-            </td>
-            <div>
-            <td>
+  <div class="container-fluid">
+    <div class="row">
+    
+      <div class="col-lg-1 sidebar"  >
+        
+          <ul>
+              <li>
+                  <a href="profile/index.html" class="account-link">
+                      <i class="fas fa-user-circle "></i> 
+                  
+                      Account
+                  </a>
+              </li>
               
-                <select>
-                    <option>
-                        SpeedGrader
-                    </option>
-                </select>
-                <hr>
+              <li>
+                  <a href="dashboard.html" class="dashboard-link">
+                      <i class="fas fa-tachometer-alt"></i> Dashboard
+                  </a>
+              </li>
+              <div class ="box">
+                  <li>
+                      <a href="#">
+                          <i class="fas fa-book account-icon"></i> Courses
+                      </a>
+                  </li>
+              </div>
+             
+              <li>
+                  <a href="#">
+                      <i class="fas fa-calendar"></i> Calendar
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-inbox"></i><br> Inbox
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-history"></i><br> History
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-cube"></i> <br>Studio
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-university"></i> 
+                      <br>
+                      Commons
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-question-circle"></i>
+                      <br> Help
+                  </a>
+              </li>
+        
+          </ul>
+      
+      </div>
+        <div class ="col-lg-11">
+            <div class = "row">
 
-                <h4>
-                    Assignment Name
-                </h4>
-                <div>
-                    <input placeholder=" A1-ENV - HTML ">
-                    <input placeholder=" this is the description">
+<div class ="flont-start">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                
+                  <li class="breadcrumb-item" style="color: RED; text-decoration: none;"><a href="#" style="text-decoration: none; color: red;"> <i class="fa-solid fa-bars" style="color: #ff2600;"></i> CS5610.1170.2230 </a></li>
+                  <li class="breadcrumb-item active" aria-current="page" style="color: red;">Assingment</li>
+                </ol>
+              </nav>
+              <div class ="navigation-bar" style="background-color: black;">
+                <nav>
+                  <ul>
+                  
+                    <li class="dropdown" style="background-color: white; ">
+                      <button>
+                        <i class="fa-solid fa-bars" style="color: #ff2600;"></i>
+                      </button>
+                     
+                      <div class="dropdown-content" style="background-color: white;">
+                        <a href="../home.html" class = "nav-link"   style="text-decoration: none ; color: red;">Home</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Module</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Piazza</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Zoom Meeting</a>
+                        <a href="index.html " class = "nav-link"   style="text-decoration: none ; color: red;">Assignments</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Quizzes</a>
+                        <a href="../grades.html" class = "nav-link"   style="text-decoration: none ; color: red;">Grades</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">People</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Panopoto Video</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Discussion</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Announcement </a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Pages</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Files</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Rubric </a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Outcomes</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Collaboaration</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Syllabus </a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Setting</a>
+                      
+              
+                      </div>
+                    </li>
+                    <li class="float-end" style="text-align: centre ; color: white; margin-left: 100px; background-color: none;">
+                        Assingmnet 
+                    </li>
+                   <li style="margin-left:200px;">
+                    <li class="dropdown" style="background-color: white; width: 200px; margin-right: 200px; ">
+                        <button class="float-end">
+                            <i class="fa-solid fa-chevron-down" style="color: #ffffff;"></i>
+                        </button>
+                        <div class="dropdown-content" style="background-color: white;">
+                            <a href="profile/index.html" class = "nav-link"   style="text-decoration: none ; color: red;">Account</a>
+                            <a href="dashboard.html" class = "nav-link"   style="text-decoration: none ; color: red;">Dashboard</a>
+                            <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Courses</a>
+                            <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Calander</a>
+                            <a href="assignments/index.html " class = "nav-link"   style="text-decoration: none ; color: red;">Inbox</a>
+                            <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">History</a>
+                            <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Commons</a>
+                            <a href="assignments/index.html " class = "nav-link"   style="text-decoration: none ; color: red;">Studio</a>
+                            <a href="assignments/index.html " class = "nav-link"   style="text-decoration: none ; color: red;">Help</a>
+                       
+                  
+                          </div>
+                   </li>
+                   
+                  </ul>
+                
+                </nav>
+              </div>
+            </div>
+              </div>
+              <hr>
+           <div class = "row">
+                  <div class="col-lg-2 home"  style="text-decoration: none; color: red; ">
+          
+         
+              <ul class="no-bullets" style="list-style-type: none; text-decoration: none;">
+                <li><a href=" "  style="text-decoration: none ; color: red;">Home</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Modules</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;" >Piazza</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Zoom Meeting</a></li>
+                      <li><a href="assignments/index.html" class = "nav-link" style="text-decoration: none;  color: black;">Assignments</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Quizzes</a></li>
+                      <li><a href="../grades.html" style="text-decoration: none;color: red;  ">Grades</a></li>
+                      <li><a href="#"  style="text-decoration: none;  color: red;">People</a></li>
+                      <li><a href="#"  style="text-decoration: none;  color: red;">Panopto Video</a></li>
+                      <li><a href="#"  style="text-decoration: none;  color: red;">Discussions</a></li>
+                      <li><a href="#"style="text-decoration: none;  color: red;">Announcements</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Pages</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Files</a></li>
+                      <li><a href="#"style="text-decoration: none ;  color: red;">Rubric</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Outcomes</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Collaboration</a></li>
+                      <li><a href="#"style="text-decoration: none;  color: red;">Syllabus</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;"> Settings</a></li>
+                     
+              </ul>
 
-                    
-                       <p> Points</p>
-                    
-                    <input placeholder="100">
+          </div>
+          <div class="content col-lg-8">
+            <label for="exampleFormControlTextarea1" class="form-label">Assigment </label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"> A1-ENV-HTML</textarea>
+  <br>
+  
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"> This assingment describes how to install the development enviornment for creating and working with web applications we will be developing this semsester. We will add new content every week, pushing the code to Github source repository, and then developing the content to a remote server hosted on netify.</textarea>
+  <br>
+              <p style="margin-left: 50px;">
+                points
+               <input class="form-control w-25" size="20px" type="text" placeholder="100"> 
+              </p>
+   <p>
+       Assign
+   </p>
+             
+                      
+                        <div class="content" style="border-color: grey; border: solid; padding-left: 20px;" >
+                            
+                          <b > Assign to </b>  
+                            <br>
+                            <input type="text" value="Everyone" maxlength="10" size="50" style="background-color: rgb(255, 248, 248);">
+                            <br>
+                           
+                          <b>Due</b>
+                          <br>
+                          <input type="date" value="9/18/2023" placeholder="9/18/2023">
+                          <br>
+                          <div class ="date">
+                          <div class ="row">
+                              <div class = "col">
+                                  <b> Available From</b>
+                              </div>
+                              <div class = "col">
+                                  <b>
+                                      Until
+                                  </b>
 
+                              </div>
+
+                          </div>
+                          <div class ="row">
+                            <div class = "col" style="margin-left: 10px;">
+                                <input type="date" value="9/18/2023" placeholder="9/18/2023">
+                            </div>
+                            <div class = "col">
+                                <input type="date" value="9/18/2023" placeholder="9/18/2023">
+
+                            </div>
+
+                        </div>
+                        </div>
+
+<br>                    
+<button style="text-align: centre; size: 40px;">
+    Add 
+</button>
+                        </div>
+<br>
+
+               <p>
+                <input type="checkbox">
+                Notify user that this content has changed
+                <button class="float-end" style="background-color: red;">
+                    <a href="index.html" style="text-decoration: none; color: black;background-color: red;">
+                        Save</a>
+
+                </button>
+                <button class="float-end">
+                    <a href="index.html" style="text-decoration: none; color: black;">
+                    Cancel</a>
                     
-                       <p> Assingmnet Group</p>
-                    
-                    <select>
-                        <option>
-                            ASSIGNEMNTS
-                        </option>
-                    </select>
-                    
-                       <p> Display Grade is </p>
-                    
-                    <select>
-                        <option>
-                            Percentage
-                        </option>
-                    </select>
-                </div>
+                </button>
+
+</p>
+
+
+
+                  
+             
+
+
+          </div>
+            </div>
+            </div>
+            </div>
+            </div>
             
-            </td>
-        </div>
-
-            <td>
-                <div>
-                    <p>
-                        Submission Type
-                    </p>
-                    <select>
-                        <option>
-                            Online
-                        </option>
-                    </select>
-                    <p>
-                        Online Entry Option
-                    </p>
-                    <input type="checkbox" id="Text Entry"
-                    value = "Text Entry">
-                    <label for="Text Entry"> Text Entrye</label><br>
-
-
-                    <input type="checkbox"
-                    id = "Website URL">
-                    <label for="Website URL"> Website URL</label><br>
-                    <input type="checkbox"
-                    id = "Media Recordings">
-                    <label for="Media Recordings"> Media Recordings</label><br>
-                    <input type="checkbox"
-                    id = "File Uploads">
-                    <label for="File Uploads"> File Uploads</label><br>
-
-                    <p>
-                        Submission Attemps
-                    </p>
-                    <select>
-                        <option>
-                            Unlimited
-                        </option>
-                    </select>
-                    <p>
-                        Plagarism Review
-                    </p>
-                    <select>
-                        <option>
-                            None
-                        </option>
-                    </select>
-                    <p>
-                        Group Assignment
-                    </p>
-                    <input type = "checkbox" id ="This is a group assignemnts">
-                    <label for = "This is a group assignemnts">This is a group assignemnts</label>
-                    
-
-                    <p>Peer Review</p>
-                    
-                    
-                    <input type = "checkbox" id=  "Require Peer Review">
-                    <label for ="Require Peer Review">Require Peer Review</label>
-                    <br>
-                    <p>Assign</p>
-                    Assign to
-                    <br>
-                    <input placeholder="Everyone">
-                    
-
-                   <p> Due</p>
-                    
-                    <input type="date" id="due" >
-                    <p> Unitl</p>
-                    
-                    <input type="date" id="due" >
-                    <p>
-                        <button><a href="index.html"> Cancel</a></button>
-                        <button><a href="index.html">Save</a></button>
-                    </p>
- 
-
-
-                </div>
-
-            </td>
-
-            </tr>
-            </table>
 
 </body>
 </html>

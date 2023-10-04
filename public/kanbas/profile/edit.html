@@ -3,146 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
+    <title>Grades</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b4159297e5.js" crossorigin="anonymous"></script>
+    <link href="../index.css"
+    rel="stylesheet"/>
     
 </head>
 <body>
-    <table>
-        <tr valign="top">
-            <td>
-                <ul>
-                    <li><a href="#">Account</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="../courses.html">Courses</a></li>
-                    <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Inbox</a></li>
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Studio</a></li>
-                    <li><a href="#">Commons</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
-            </td>
-          
-       
-            <td>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="#">Modules</a></li>
-                    <li><a href="#">Piazza</a></li>
-                    <li><a href="#">Zoom Meeting</a></li>
-                    <li><a href="../index.html">Assignments</a></li>
-                    <li><a href="#">Quizzes</a></li>
-                    <li><a href="grades.html">Grades</a></li>
-                    <li><a href="#">People</a></li>
-                    <li><a href="#">Panopto Video</a></li>
-                    <li><a href="#">Discussions</a></li>
-                    <li><a href="#">Announcements</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Files</a></li>
-                    <li><a href="#">Rubric</a></li>
-                    <li><a href="#">Outcomes</a></li>
-                    <li><a href="#">Collaboration</a></li>
-                    <li><a href="#">Syllabus</a></li>
-                    <li><a href="#">Settings</a></li>
-                   
-                </ul>
-            </td>
-            <td>
-              <h2>
-                Jose Annuziato
-              </h2>
-              <p>
-                Name:* <input placeholder="Jose Annuziato"> <input type="text" placeholder="None">
-              </p>
-              <p> Title: <input type="text"></p>
-              <h3>
-                Contact
-              </h3>
-              No registered service, you can add some on the <a href="Setting"> </a> page.
-              <h3>
-                Contact
-              </h3>
-              No registered service, you can add some on the <a href="Setting"> </a> page.
-
-
-
-          <h4>Biography</h4>
-          Faculty, Software Engineer, AI, Space and reweable enthusist.
-          <input type="text" placeholder="Faculty, Software Engineer, AI, Space and reweable enthusist.">
-          <h4>
-            Links
-          </h4>
+  <div class="container-fluid">
+    <div class="row">
+    
+      <div class="col-lg-1 sidebar"  >
+        
           <ul>
-            
-              <a href = "Youtube Links to an external site."> Youtube Links to an external site</a>
-            
-            
-          </ul>
-          <table>
-            <tr>
-              <td>
-                <h2>
-                  Title
-                </h2>
-              </td>
+              <li>
+                  <a href="profile/index.html" class="account-link">
+                      <i class="fas fa-user-circle "></i> 
+                  
+                      Account
+                  </a>
+              </li>
               
-                <td>
-                <h2>
-                  URL
-                </h2>
-           </td>
-            </tr>
-            <tr>
-              <td>
-                <input placeholder="Youtube">
- 
-              </td>
-              <td>
-                <span>-></span>
-              </td>
-              <td>
-                <input placeholder=" https://www.youtube.com">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button>
-                  Add Another Link
-                </button>
-                
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button>
-                  Cancel
-                </button>
-                <button> <a href="index.html"> Save Profile</a>
-                 
-                </button>
+              <li>
+                  <a href="../dashboard.html" class="dashboard-link">
+                      <i class="fas fa-tachometer-alt"></i> Dashboard
+                  </a>
+              </li>
+              <div class ="box">
+                  <li>
+                      <a href="../home.html">
+                          <i class="fas fa-book account-icon"></i> Courses
+                      </a>
+                  </li>
+              </div>
+             
+              <li>
+                  <a href="#">
+                      <i class="fas fa-calendar"></i> Calendar
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-inbox"></i><br> Inbox
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-history"></i><br> History
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-cube"></i> <br>Studio
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-university"></i> 
+                      <br>
+                      Commons
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-question-circle"></i>
+                      <br> Help
+                  </a>
+              </li>
+        
+          </ul>
+      
+      </div>
 
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button>
-                  Edit Profile
-                </button>
-                <button> <a href="index.html"> Cancel Editing</a>
-                 
-                </button>
-                
-              </td>
-            </tr>
-          </table>
-           
-           
-         
-         
-            </td>
+  <div class ="col-lg-11">
+            <div class = "row">
 
-            </tr> 
-            </table>
+<div class ="flont-start">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                
+                  <li class="breadcrumb-item" style="color: RED; text-decoration: none;"><a href="#" style="text-decoration: none; color: red;"> <i class="fa-solid fa-bars" style="color: #ff2600;"></i> CS5610.1170.2230 </a></li>
+                  <li class="breadcrumb-item active" aria-current="page" style="color: BLACK;">JOHN ANNOTINIO'S PROFILE</li>
+                </ol>
+              </nav>
+              <div class ="navigation-bar" style="background-color: black;">
+                <nav>
+                  <ul>
+                  
+                    <li class="dropdown" style="background-color: white; ">
+                      <button>
+                        <i class="fa-solid fa-bars" style="color: #ff2600;"></i>
+                      </button>
+                     
+                      <div class="dropdown-content" style="background-color: white;">
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Home</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Module</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Piazza</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Zoom Meeting</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Assignments/a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Quizzes</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Grades</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">People</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Panopoto Video</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Discussion</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Announcement </a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Pages</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Files</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Rubric </a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Outcomes</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Collaboaration</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Syllabus </a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Setting</a>
+                      
+              
+                      </div>
+                    </li>
+                   
+                  </ul>
+                
+                </nav>
+              </div>
+              
+
+              </div>
+            </div>
+              
+              <hr>
+              <div class = "row">
+             
+                <div class="col-lg-2 col-lg-1 home"  style="text-decoration: none; color: red; ">
+        
+       
+            <ul class="no-bullets" style="list-style-type: none; text-decoration: none;">
+               
+              <li><a href="../home.html " style="text-decoration: none; color: red;" >Notification</a></li>
+              <li><a href="#" class ="nav-link" style="text-decoration: none; border-left: solid;">Profile</a></li>
+              <li><a href="#" style="text-decoration: none; color: red;" >File</a></li>
+              <li><a href="#" style="text-decoration: none; color: red;">Setting</a></li>
+              <li><a href="../assignments/index.html" style="text-decoration: none; color: red;">Eportfolio</a></li>
+              <li><a href="#" style="text-decoration: none; color: red;">Shared Contact</a></li>
+              <li><a href="grades.html" style="text-decoration: none; color: red;">The Hub</a></li>
+              <li><a href="#"  style="text-decoration: none; color: red;">Qwicky Course Tool</a></li>
+              <li><a href="#"  style="text-decoration: none; color: red;">Global Announcements</a></li>
+              </ul>
+
+                   
+            </ul>
+
+        </div>
+          <div class ="col-lg-5" style="margin-top: 10px;">
             
-            </body>
-            </html>
+            <h4>
+              Jose Annuziato
+            </h4>
+            <div class = "image">
+              <i class="fa-regular fa-user fa-2xl" style="border-radius: 50%;" ></i>
+              <div class = "float-end">  <button class="btn btn-secondary" style="size: auto; color: grey;">  <a href="index.html" style="text-decoration: none; color: black;"> <i class="fa-solid fa-pencil" style="color: #aaaaaa;"></i> Cancel Edit</a></button></a> </h3></div>
+            </div>
+
+            
+        
+              
+               
+               <br>
+              
+             
+            
+         
+         
+            
+            <h6><b>Name:*</b></h6>
+            <input placeholder=" Jose Annunziato" style="padding-left: 10px;">
+          </p>
+          <p>
+            <h6><b>Pronouns:</b></h6>
+            <select class ="select"  style="width: 100px;">
+              <option>
+                none
+              </option>
+            </select>
+          </p>
+          <p><b> Title:</b><br> <input type="text" st></p>
+         
+          <b>Contact</b>
+          </h5>
+        <p>  No registered service, you can add some on the <a href="Setting" style="text-decoration: none; color: red;"> Setting</a> page.</p>
+
+
+
+      <h5>
+        <b>Biography </b></h5>
+  
+
+      <p>Faculty, Software Engineer, AI, Space and reweable enthusist.</p>
+      <input type="text" placeholder="Faculty, Software Engineer, AI, Space and reweable enthusist." style="padding-right:100px ;">
+      
+<br> 
+
+      <h4> Links</h4>
+      <div class="container text-center">
+       
+        <div class="row">
+          <div class="col-lg-2">
+           <h8><b>Title</b></h8>
+          </div>
+         
+          <div class="col-lg-4" style="margin-left: 20px;">
+            <h8><b> URL</b></h8>
+          </div>
+          </div>
+          <div class="row">
+            <div class = "col-lg-3"  style="margin-left: 5px; text-align: left;">
+              <input placeholder="Youtube">
+            </div>
+             
+            <div class = "col-lg-3" style="margin-left: 0px;">
+              <input placeholder=" https://www.youtube.com">
+            </div>
+          </div>
+          <div class ="row">
+            <div class="col-lg-6" style="text-align: left;">
+          <button> Add Another Link</button>
+          </div>
+          </div>
+
+        </div>
+        <hr>
+        <div class = "class">
+          <button>
+            <a href="index.html" style="text-decoration: none; color: black;">
+              Cancel 
+            </a>
+          </button>
+          <button style="background-color: red;">
+            <a href="index.html" style="text-decoration: none; color: black;">
+              Save Profile
+            </a>
+          </button>
+        </div>
+      </div>
+
+
+
+          </div>
+
+
+
+          </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        </body>
+        </html>

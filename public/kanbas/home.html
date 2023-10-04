@@ -3,258 +3,734 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanbas Home Screen</title>
+    <title>Grades</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b4159297e5.js" crossorigin="anonymous"></script>
+    <link href="index.css"
+    rel="stylesheet"/>
+    
 </head>
 <body>
-  <!-- Second Page Content (home.html) -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanbas Home Screen</title>
-</head>
-<body>
-    <table>
-        <tr valign="top">
-            <td>
-                <ul>
-                    <li><a href="profile/index.html">Account</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="home.html">Courses</a></li>
-                    <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Inbox</a></li>
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Studio</a></li>
-                    <li><a href="#">Commons</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
-            </td>
-          
-       
-            <td>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="#">Modules</a></li>
-                    <li><a href="#">Piazza</a></li>
-                    <li><a href="#">Zoom Meeting</a></li>
-                    <li><a href="assignments/index.html">Assignments</a></li>
-                    <li><a href="#">Quizzes</a></li>
-                    <li><a href="grades.html">Grades</a></li>
-                    <li><a href="#">People</a></li>
-                    <li><a href="#">Panopto Video</a></li>
-                    <li><a href="#">Discussions</a></li>
-                    <li><a href="#">Announcements</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Files</a></li>
-                    <li><a href="#">Rubric</a></li>
-                    <li><a href="#">Outcomes</a></li>
-                    <li><a href="#">Collaboration</a></li>
-                    <li><a href="#">Syllabus</a></li>
-                    <li><a href="#">Settings</a></li>
-                   
-                </ul>
-            </td>
-            
-           
+ <!-- <div class="container-fluid"> -->
+    <div class="row">
+    
+      <div class="col-lg-1 sidebar"  >
         
+          <ul>
+              <li>
+                  <a href="profile/index.html" class="account-link">
+                      <i class="fas fa-user-circle "></i> 
+                  
+                      Account
+                  </a>
+              </li>
+              
+              <li>
+                  <a href="dashboard.html" class="dashboard-link">
+                      <i class="fas fa-tachometer-alt"></i> Dashboard
+                  </a>
+              </li>
+              <div class ="box">
+                  <li>
+                      <a href="#">
+                          <i class="fas fa-book account-icon"></i> Courses
+                      </a>
+                  </li>
+              </div>
+             
+              <li>
+                  <a href="#">
+                      <i class="fas fa-calendar"></i> Calendar
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-inbox"></i><br> Inbox
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-history"></i><br> History
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-cube"></i> <br>Studio
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-university"></i> 
+                      <br>
+                      Commons
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fas fa-question-circle"></i>
+                      <br> Help
+                  </a>
+              </li>
+        
+          </ul>
+      
+      </div>
+        <div class ="col-lg-11">
+            <div class = "row">
+
+<div class ="flont-start">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
                 
-          
-           
-            <td>
-                <div class = "button">
-                <button>Collapse All</button>
-                <button>View Program</button>
-               
-                    <select>
-                    <option>Publish</option>
-                    <option>Option2</option>
-                    <option>Option3</option>
+                  <li class="breadcrumb-item" style="color: RED; text-decoration: none;"><a href="#" style="text-decoration: none; color: red;"> <i class="fa-solid fa-bars" style="color: #ff2600;"></i> CS5610.1170.2230 </a></li>
+                  <li class="breadcrumb-item active" aria-current="page" style="color: red;">Home</li>
+                </ol>
+              </nav>
+              <div class ="navigation-bar" style="background-color: black;">
+                <nav>
+                  <ul> 
+                     
+                    <li class="dropdown" style="background-color: white; ">
+                      <button>
+                        <i class="fa-solid fa-bars" style="color: #ff2600;"></i>
+                      </button>
                     
-                </select>
-                   
-            
-                <button>Modules</button>
-            </div>
-
-                <ul>
-                    <li>
-                        Week 0 - INTRO
-                        <ul>
-                            <li>
-                                Learning objectives
-                            </li>
-                            <ul>
-                                <li>
-                                    Introduction to the course
-                                </li>
-                                <li>
-                                    Learn what is Web Development
-                                </li>
-                                <li>
-                                    Creating Development enviournment
-                                </li>
-                                <li>
-                                    Creating a Web Application
-                                </li>
-                                <li>
-                                    Geeting started with the Ist Assingment
-                                </li>
-                            </ul>
-                            <li> 
-                                Reading
-                            </li>
-                            <ul>
-                                <li>
-                                    Full Stack Developer Chapter -1 - Introduction 
-                                </li>
-                                <li>
-                                    Full Stack Developer Chapter -2 - Creating User Interfsces with HTML
-                                </li>
-                            </ul>
-                            <li>
-                                SLIDES
-                            </li>
-                            <ul>
-                                <li>
-                                    <a href>  Introduction to web development LInks to an external site</a>
-                                   
-                                </li>
-                                <li>
-                                    <a href>  Creating an HTTP server with Node.Js Links to external site</a>
-                                   
-                                </li>
-                                <li>
-                                    <a href>  Creating a React Application Links to an external site</a>
-                                   
-                                </li>
-                            </ul>
-                            </ul>
-                    
-                            
-                                <li>
-                                    WEEK-1 -HTML
-                                </li>
-                                <ul>
-                                    <li>
-                                        Learning Objectives
-                                    </li>
-                                    <ul>
-                                        <li>
-                                            Learn how to create interfcaes with HTML
-                                        </li>
-                                        <li>
-                                            Keep Workig on Assingment 1
-                                        </li>
-                                        <li>
-                                            Deploy the assignment to Netify
-                                        </li>
-                                    </ul>
-                                    
-                                        <li> READING</li>
-                                        <ul>
-                                            <li>
-                                                Full Stack Developer Chapter -1 - Introduction 
-                                            </li>
-                                            <li>
-                                                Full Stack Developer Chapter -2 - Creating User Interfsces with HTML
-                                            </li>
-                                        </ul>
-                                       
-                                    </ul>
-                                </ul>
-                            </ul>
-
-                        </ul>
+                     
+                      <div class="dropdown-content" style="background-color: white;">
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Home</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Module</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Piazza</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Zoom Meeting</a>
+                        <a href="assignments/index.html " class = "nav-link"   style="text-decoration: none ; color: red;">Assignments/a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Quizzes</a>
+                        <a href="grades.html" class = "nav-link"   style="text-decoration: none ; color: red;">Grades</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">People</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Panopoto Video</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Discussion</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Announcement </a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Pages</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Files</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Rubric </a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Outcomes</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Collaboaration</a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Syllabus </a>
+                        <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Setting</a>
+                      
+              
+                      </div>
                     </li>
-                </ul>
-            </div>
-            </td>
+                    <li class="float-end" style="text-align: centre ; color: white; margin-left: 100px; background-color: none;">
+                        Module
+                    </li>
+                   <li style="margin-left:200px;">
+                    <li class="dropdown" style="background-color: white; width: 200px; margin-right: 200px; ">
+                        <button class="float-end">
+                            <i class="fa-solid fa-chevron-down" style="color: #ffffff;"></i>
+                        </button>
+                        <div class="dropdown-content" style="background-color: white;">
+                            <a href="profile/index.html" class = "nav-link"   style="text-decoration: none ; color: red;">Account</a>
+                            <a href="dashboard.html" class = "nav-link"   style="text-decoration: none ; color: red;">Dashboard</a>
+                            <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Courses</a>
+                            <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Calander</a>
+                            <a href="assignments/index.html " class = "nav-link"   style="text-decoration: none ; color: red;">Inbox</a>
+                            <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">History</a>
+                            <a href="home.html " class = "nav-link"   style="text-decoration: none ; color: red;">Commons</a>
+                            <a href="assignments/index.html " class = "nav-link"   style="text-decoration: none ; color: red;">Studio</a>
+                            <a href="assignments/index.html " class = "nav-link"   style="text-decoration: none ; color: red;">Help</a>
+                       
+                  
+                          </div>
+                   </li>
+                   
+                  </ul>
+                
+                </nav>
+              </div>
 
-            <td>
-                <div class ="3 rd">
-                    <h2>
+
+            </div>
+              </div>
+              <hr>
+           <div class = "row">
+                  <div class="col-lg-1 col-lg-1 home"  style="text-decoration: none; color: red; ">
+          
+         
+              <ul class="no-bullets" style="list-style-type: none; text-decoration: none;">
+                <li><a href="home.html " class = "nav-link"   style="text-decoration: none ; color: black;">Home</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Modules</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;" >Piazza</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Zoom Meeting</a></li>
+                      <li><a href="assignments/index.html" style="text-decoration: none;  color:red;">Assignments</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Quizzes</a></li>
+                      <li><a href="grades.html" style="text-decoration: none;color: red;  ">Grades</a></li>
+                      <li><a href="#"  style="text-decoration: none;  color: red;">People</a></li>
+                      <li><a href="#"  style="text-decoration: none;  color: red;">Panopto Video</a></li>
+                      <li><a href="#"  style="text-decoration: none;  color: red;">Discussions</a></li>
+                      <li><a href="#"style="text-decoration: none;  color: red;">Announcements</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Pages</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Files</a></li>
+                      <li><a href="#"style="text-decoration: none ;  color: red;">Rubric</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Outcomes</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;">Collaboration</a></li>
+                      <li><a href="#"style="text-decoration: none;  color: red;">Syllabus</a></li>
+                      <li><a href="#" style="text-decoration: none;  color: red;"> Settings</a></li>
+                     
+              </ul>
+
+          </div>
+          <div class="col-lg-8 col-md-4">
+            <div class="class" >
+                
+                
+                <button class="float-end"> <i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <button class ="float-end" style="background-color: red; color: white;"><a href="#" class="list-group-item-secondary"><i class="fa fa-plus" aria-hidden="true"></i>Modules</a></button>
+             
+                  <a class="btn btn-secondary dropdown-toggle" style="background-color: rgba(255, 255, 255, 0.217); border-color: white;" role="button" data-bs-toggle="dropdown">
+                    Publish
+                      
+                  
+                  </a>
+                 
+                  
+                  <button class="float-end">View Progress</button>
+                  <button class="float-end">Collapse</button>
+                  
+
+            </div>
+            <hr>
+              
+            <ul>
+            
+              <li  class="list-group-item" style="background-color: rgb(159, 150, 150); border-bottom-color:black ; padding-left: 0;">
+                <div class ="row">
+                    <div class="col-lg-3 col-md-3" style=" border-bottom-color:black ;">
+                        Week 0 - INTRO
+                    </div>
+                    <div class = "col-lg-9 col-md-9">
+                        <div class ="class" style="float: right;">
+                            <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                          <i class="fa-solid fa-plus"></i>
+                          <i class="fa-solid fa-caret-down"></i>
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                          </div>
+                          </div>
+                    
+
+                </div>   
+                
+                 
+                  
+              </li>
+                 
+                  <ul>
+                      <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                        <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-3">
+                                    Learning objectives
+                                </div>
+        
+                            
+                            <div class = "col-md-9">
+                                <div class ="class" style="float: right;">
+                                    <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                 
+                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                  </div>
+                                  </div>
+                            
+                          
+                            
+                            </div>
+                      </li>
+                      <ul>
+                        <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-3">
+                                    Introduction To Course
+                                </div>
+                                <div class = "col-md-9">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                                
+
+                            </div>
+                             
+                             
+                          </li>
+                          <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-5">
+                                   Learning What is Web development
+                                </div>
+                                <div class = "col-md-7">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                                
+
+                            </div>
+                          </li>
+                          <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-5">
+                                    Creating Development enviournment
+                                </div>
+                                <div class = "col-md-7">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                             
+                          </li>
+                          <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-5">
+                                    Creating Web Application
+                                </div>
+                                <div class = "col-md-7">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                             
+                          </li>
+                          <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-5">
+                                    Getting Started with 1st Assingment 
+                                </div>
+                                <div class = "col-md-7">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                             
+                          </li>
+                      </ul>
+                      <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                        <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-3">
+                                   Reading
+                                </div>
+        
+                            
+                            <div class = "col-md-9">
+                                <div class ="class" style="float: right;">
+                                    <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                 
+                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                  </div>
+                                  </div>
+                            
+                          
+                            
+                            </div>
+                      </li>
+                      <ul>
+                        <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-5">
+                                    Full Stack Developer Chapter -1 - Introduction 
+                                </div>
+                                <div class = "col-md-7">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                             
+                          </li>
+                          <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-9">
+                                    Full Stack Developer Chapter -2 - Creating User Interfsces with HTML 
+
+                                </div>
+                                <div class = "col-md-3">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                             
+                          </li>
+                      </ul>
+                      <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                        <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-3">
+                                    Slides
+                                </div>
+        
+                            
+                            <div class = "col-md-9">
+                                <div class ="class" style="float: right;">
+                                    <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                 
+                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                  </div>
+                                  </div>
+                            
+                          
+                            
+                            </div>
+                      </li>
+                      <ul>
+                        <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-5">
+                                   Intro To Web developemnt
+                                </div>
+                                <div class = "col-md-7">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                             
+                          </li>
+                          <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-9">
+                                    <a href style="text-decoration: none; color: red;">  Creating an HTTP server with Node.Js Links to external site</a>
+                                </div>
+                                <div class = "col-md-3">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                             
+                          </li>
+                          <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                            <div class ="row" style="border-bottom: solid;">
+                                <div class="col-lg-9">
+                                    <a href style="text-decoration: none; color: red;">   Creating a React Application Links to an external site</a>
+
+
+                                </div>
+                                <div class = "col-md-3">
+                                    <div class ="class" style="float: right;">
+                                        <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                     
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </div>
+                                      </div>
+                             
+                          </li>
+                      </ul>
+                      </ul>
+              
+                      
+                      <li  class="list-group-item" style="background-color: rgb(159, 150, 150); border-bottom-color:black ; padding-left: 0;">
+                        <div class ="row">
+                            <div class="col-lg-3" style=" border-bottom-color:black ;">
+                                Week 1 - HTML
+                            </div>
+                            <div class = "col-lg-9">
+                                <div class ="class" style="float: right;">
+                                    <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                  <i class="fa-solid fa-plus"></i>
+                                  <i class="fa-solid fa-caret-down"></i>
+                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                  </div>
+                                  </div>
+                            
+        
+                        </div> 
+                        </li> 
+                          <ul>
+                            <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                <div class ="row" style="border-bottom: solid;">
+                                    <div class="col-lg-9">
+                                        Learning Objectives 
+    
+                                    </div>
+                                    <div class = "col-md-3">
+                                        <div class ="class" style="float: right;">
+                                            <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                         
+                                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                                          </div>
+                                          </div>
+                                 
+                              </li>
+                              <ul>
+                                <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                    <div class ="row" style="border-bottom: solid;">
+                                        <div class="col-lg-9">
+                                             Learn how to create interfcaes with HTML 
+        
+                                        </div>
+                                        <div class = "col-md-3">
+                                            <div class ="class" style="float: right;">
+                                                <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                             
+                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                              </div>
+                                              </div>
+                                     
+                                  </li>
+                                  <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                    <div class ="row" style="border-bottom: solid;">
+                                        <div class="col-lg-9">
+                                             Keep Workig on Assingment 1 
+        
+                                        </div>
+                                        <div class = "col-md-3">
+                                            <div class ="class" style="float: right;">
+                                                <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                             
+                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                              </div>
+                                              </div>
+                                     
+                                  </li>
+                                  <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                    <div class ="row" style="border-bottom: solid;">
+                                        <div class="col-lg-9">
+                                            Deploy the assignment to Netify 
+        
+                                        </div>
+                                        <div class = "col-md-3">
+                                            <div class ="class" style="float: right;">
+                                                <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                             
+                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                              </div>
+                                              </div>
+                                     
+                                  </li>
+                              </ul>
+
+                              
+                              <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                <div class ="row" style="border-bottom: solid;">
+                                    <div class="col-lg-9">
+                                        Reading
+    
+                                    </div>
+                                    <div class = "col-md-3">
+                                        <div class ="class" style="float: right;">
+                                            <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                         
+                                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                                          </div>
+                                          </div>
+                                 
+                              </li>
+                              <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                <div class ="row" style="border-bottom: solid;">
+                                    <div class="col-lg-9">
+                                        Full Stack Developer Chapter -2 - Creating User Interfsces with HTML 
+    
+                                    </div>
+                                    <div class = "col-md-3">
+                                        <div class ="class" style="float: right;">
+                                            <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                         
+                                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                                          </div>
+                                          </div>
+                                 
+                              </li>
+                                  </ul>
+                                  <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                    <div class ="row" style="border-bottom: solid;">
+                                            <div class="col-lg-3">
+                                                Slides
+                                            </div>
+                    
+                                        
+                                        <div class = "col-md-9">
+                                            <div class ="class" style="float: right;">
+                                                <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                             
+                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                              </div>
+                                              </div>
+                                        
+                                      
+                                        
+                                        </div>
+                                  </li>
+                                  <ul>
+                                    <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                        <div class ="row" style="border-bottom: solid;">
+                                            <div class="col-lg-5">
+                                               Intro To Web developemnt
+                                            </div>
+                                            <div class = "col-md-7">
+                                                <div class ="class" style="float: right;">
+                                                    <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                                 
+                                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                  </div>
+                                                  </div>
+                                         
+                                      </li>
+                                      <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                        <div class ="row" style="border-bottom: solid;">
+                                            <div class="col-lg-9">
+                                                <a href style="text-decoration: none; color: red;">  Creating an HTTP server with Node.Js Links to external site</a>
+                                            </div>
+                                            <div class = "col-md-3">
+                                                <div class ="class" style="float: right;">
+                                                    <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                                 
+                                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                  </div>
+                                                  </div>
+                                         
+                                      </li>
+                                      <li class="list-group-item"  style="background-color: rgb(255, 255, 255); border-bottom-color:black ; padding-left: 0;">
+                                        <div class ="row" style="border-bottom: solid;">
+                                            <div class="col-lg-9">
+                                                <a href style="text-decoration: none; color: red;">   Creating a React Application Links to an external site</a>
+            
+            
+                                            </div>
+                                            <div class = "col-md-3">
+                                                <div class ="class" style="float: right;">
+                                                    <i class="fa fa-check-circle" style="color: green;" aria-hidden="true" style="float: right; margin-right: 0;"></i>
+                                                 
+                                                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                  </div>
+                                                  </div>
+                                         
+                                      </li>
+                                 
+                              </ul>
+                          </ul>
+                      </ul>
+
+                  </ul>
+              </li>
+          </ul>
+          
+      </div>
+      <div class="col-lg-3">
+            <h2>
                         Course Status
                     </h2>
                     <div class ="b2">
                         <button>
+                            <i class="fa-solid fa-ban"></i>
                             Unpublished
                         </button>
                         <button>
+                            <i class="fa-solid fa-check" style="color: #b1dd8c;"></i>
                             Published
                         </button>
                     </div>
                     <ul>
-                        <li>
-                            <a href>
-                                Import Existing
-                            </a>
-                        </li>
-                        <li>
-                            <a href>
-                                Import From Commons
-                            </a>
-                        </li>
-                        <li>
-                            <a href>
-                               Choose Home Page
-                            </a>
-                        </li>
-                        <li>
-                            <a href>
-                               View Course Stream
-                            </a>
-                        </li>
-                        <li>
-                            <a href>
-                                View Announcements
-                            </a>
-                        </li>
-                        <li>
-                            <a href>
-                                New Analytics 
-                            </a>
-                        </li>
-                        <li>
-                            <a href>
-                               View Course Notifications
-                            </a>
-                        </li>
+                        <div class ="box-2">
+                            <button>
+                                <li class=" list" style="list-style-type: none;">
+                                    <a href style="text-decoration: none; color: grey;">
+                                        Import Existing
+                                    </a>
+                                </li>
+                            </button>
+                            <br>
+    
+                           <button>
+                            <li class=" list" style="list-style-type: none;">
+                                <a href style="text-decoration: none; color: grey;">
+                                    Import From Commons
+                                </a>
+                            </li>
+                            
+    
+                           </button>
+                           <br>
+    
+                            <button>
+                                <li class=" list" style="list-style-type: none;">
+                                    <a href style="text-decoration: none; color: grey;">
+                                       Choose Home Page
+                                    </a>
+                                </li>
+                            </button>
+    <br>
+                            <button>
+                                <li class=" list" style="list-style-type: none;">
+                                    <a href style="text-decoration: none; color: grey;">
+                                       View Course Stream
+                                    </a>
+                                </li>
+    
+                            </button>
+                            <br>
+                            <button>
+                                <li class=" list" style="list-style-type: none;">
+                                    <a href style="text-decoration: none; color: grey;">
+                                        View Announcements
+                                    </a>
+                                </li>
+                            </button>
+                            <br>
+                            <button>
+                                <li class=" list" style="list-style-type: none;">
+                                    <a href style="text-decoration: none; color: grey;">
+                                        New Analytics 
+                                    </a>
+                                </li>
+                            </button>
+                            <br>
+                            <button>
+                                <li class=" list" style="list-style-type: none; color: grey;">
+                                    <a href style="text-decoration: none; color: grey;">
+                                       View Course Notifications
+                                    </a>
+                                </li>
+                            </button>
+                        </div>
+                        
+                        <br>
                     </ul>
-                    <h2>
-                        Coming Up
-                    </h2>
-                    <a href>
-                        View Calender
-                    </a>
-                    <div class = "h4">
-                        <ul>
-                            <li>
-                                <a href>
-                                    Lecture CS4550| Sep 7
-                                </a>
-                            </li>
-                            <li>
-                                <a href>
-                                   Lecture CS4550| Sep 11
-                                </a>
-                            </li>
-                            <li>
-                                <a href>
-                                    Lecture CS4550| Sept 18
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                   <b>TO DO</b>
+                   <hr>
                 
-            </td>
+                   <a href style="list-style-type: none; color: red;text-decoration: none;" >
+                    <i class="fa-solid fa-1" style="margin-left:10px;color: #e32400; border-radius: 50%; border-color: red;"></i>
+                </a>
 
-        </tr>
-    </table>
-</body>
-</html>
+         <a href="grades.html" style="color: RED; margin-left: 10px; text-decoration: none;">Grades A1-ENV-HTML</a>
+         
+         <i class="fa-solid fa-circle-xmark fa-xs" style="color: #c0c0c0; margin-left: 50px;" ></i>
+         <p style="size: 2px; text-align: centre; margin-left: 30px; color: grey;">
+             100 points.Sep 18 2023
+         </p>
+         <h12> Coming Up </h12>
+        </div>
+      
+            
+        </div> 
+        
+        </div>
+        
 
 
-</body>
+
+        </div>
+        </div>
+    </body>
 </html>
