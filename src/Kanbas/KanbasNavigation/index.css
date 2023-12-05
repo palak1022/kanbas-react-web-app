@@ -1,0 +1,87 @@
+
+body {
+  margin: 0; /* Remove default margin from the body */
+  overflow: hidden; /* Prevent scrolling on the body */
+}
+
+.sidebar {
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  width: 125px; /* Adjust as needed within the 75-85px range */
+  text-decoration: none;
+  color: red;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: black; /* Set the default background color */ 
+  margin-right: 200%;
+  
+}
+
+.li-active{
+  background-color: white;
+  width: 116px;
+  align-content: left;
+  list-style-type: none
+}
+/* index.css */
+/* ... (other styles remain the same) */
+
+.sidebar a {
+  text-decoration: none;
+  color: red;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: black; /* Set the default background color */
+}
+
+/* Active Link Styles */
+.active-link {
+  background-color: white !important; /* Add !important to ensure specificity */
+  color: red;
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+
+/* Active Link Styles */
+.active-link {
+  background-color: white;
+  color: red;
+}
+
+/* Account Icon Styles */
+.account-icon {
+  color: red;
+}
+
+.nav-link{
+  color: black;          /* Text color */
+  border-left: 2px solid black; /* Left border */
+}
+
+/* Remove bullet points from the list */
+ul.no-bullets {
+  list-style-type: none;
+}
+
+/* Add margin to the bottom of each list item (except the last one) */
+ul.no-bullets li:not(:last-child) {
+  margin-bottom: 5px; /* Adjust the value as needed */
+
+}
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Use full width on smaller screens */
+  }
+}
