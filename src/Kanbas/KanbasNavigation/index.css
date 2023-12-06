@@ -1,87 +1,65 @@
-
-body {
-  margin: 0; /* Remove default margin from the body */
-  overflow: hidden; /* Prevent scrolling on the body */
+.wd-kanbas-navigation .wd-icon {
+  font-size: 2em;
 }
 
-.sidebar {
-  height: 100vh; /* Set the height to 100% of the viewport height */
-  width: 125px; /* Adjust as needed within the 75-85px range */
-  text-decoration: none;
-  color: red;
-  display: block;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: black; /* Set the default background color */ 
-  margin-right: 200%;
-  
+.wd-kanbas-navigation .list-group-item:first-child,
+.wd-kanbas-navigation .list-group-item:last-child,
+.wd-kanbas-navigation .list-group-item.active:last-child,
+.wd-kanbas-navigation.list-group {
+  border-radius: 0px;
 }
 
-.li-active{
-  background-color: white;
-  width: 116px;
-  align-content: left;
-  list-style-type: none
-}
-/* index.css */
-/* ... (other styles remain the same) */
-
-.sidebar a {
-  text-decoration: none;
-  color: red;
-  display: block;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: black; /* Set the default background color */
-}
-
-/* Active Link Styles */
-.active-link {
-  background-color: white !important; /* Add !important to ensure specificity */
-  color: red;
-}
-
-
-.sidebar ul {
+.wd-kanbas-navigation {
+  background-color: black;
   list-style: none;
-  padding: 0;
+  padding: 0px;
+  width: 80px;
+  height: 2000px;
+  margin: 0px;
 }
 
-.sidebar li {
-  margin: 10px 0;
+.wd-kanbas-navigation a {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 0.8em;
+  text-align: center;
+  background-color: black;
+  border: none;
 }
 
-
-/* Active Link Styles */
-.active-link {
+.wd-kanbas-navigation a.active {
   background-color: white;
-  color: red;
 }
 
-/* Account Icon Styles */
-.account-icon {
-  color: red;
+.wd-kanbas-navigation a.active {
+  color: #b52828;
 }
 
-.nav-link{
-  color: black;          /* Text color */
-  border-left: 2px solid black; /* Left border */
+.wd-kanbas-navigation a {
+  color: #b52828;
+  text-decoration: none;
 }
 
-/* Remove bullet points from the list */
-ul.no-bullets {
-  list-style-type: none;
+.wd-account-icon {
+  color: grey;
 }
 
-/* Add margin to the bottom of each list item (except the last one) */
-ul.no-bullets li:not(:last-child) {
-  margin-bottom: 5px; /* Adjust the value as needed */
-
+.wd-kanbas-navigation-words {
+  color: white;
 }
-@media screen and (max-width: 768px) {
-  .sidebar {
-    width: 100%; /* Use full width on smaller screens */
-  }
+
+.active .wd-kanbas-navigation-words {
+  color: #b52828;
+}
+
+/* .wd-menu-text {
+  color: white;
+} */
+.wd-northeastern-logo {
+  width: 70px;
+  height: 70px;
+}
+
+.wd-bg-color {
+  background-color: black;
 }

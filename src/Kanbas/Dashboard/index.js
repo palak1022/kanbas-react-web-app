@@ -1,65 +1,45 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import db from "../Database";
-import KanbasNavigation from "../KanbasNavigation";
-import "./dashboard.css";
+import { Link } from "react-router-dom";
+import "./index.css"
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { IoNewspaperOutline } from "react-icons/io5";
 
 function Dashboard() {
-  // Enclose the content within parentheses to be executed
+  const courses = db.courses;
   return (
-    <div>
-      {/* Rendering the KanbasNavigation component */}
-      
-      <h5>
-        <b>Dashboard</b>
-      </h5>
-      <hr />
-      <div className="row">
-        <h6>
-          <b>Published Courses (24)</b>
-        </h6>
+    <>
+      <div className={'d-none d-md-block'}>
+        <div className={'fs-1'}>Dashboard</div>
+        <hr />
       </div>
-      <hr />
-      <div className="row">
-        {/* Mapping over courses and rendering cards */}
-        {db.courses.map((course) => (
-          <div
-            key={course._id}
-            className="card"
-            style={{
-              width: "250px",
-              alignContent: "left",
-              margin: "10px",
-              marginRight: "20px",
-              marginLeft: "20px",
-            }}
-          >
-            <Link
-              to={`/Kanbas/Courses/${course._id}`}
-              style={{ textDecoration: "none" }}
-            >
-              <img
-                className="card-img-top"
-                src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
-                alt="Card cap"
-                style={{ width: "250px", height: "200px", paddingLeft: "0px" }}
-              />
-              <div className="card-body">
-                <h8 className="card-title" style={{ color: "blue" }}>
-                  {course.number} {course.name}
-                </h8>
-                <p
-                  className="card-text"
-                  style={{ color: "grey", paddingBottom: "5px" }}
-                >
-                  {course.number}.{course.section}.{course.term}
-                </p>
+      <h3>Published courses ({courses.length})</h3>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {courses.map((course, index) => (
+          <div className="col-12 col-sm-6 col-lg-4 col-xl-3 pt-4"
+            key={course._id}>
+            <div className="card wd-card-style">
+              <div className="wd-card-length wd-bg-color">
+                <BsThreeDotsVertical className="wd-color-col float-end" />
               </div>
-            </Link>
+              <div className="card-body">
+                <Link
+                  key={course._id}
+                  to={`/Kanbas/Courses/${course._id}`}
+                  className="text-decoration-none"
+                >
+                  <p className="wd-card-heading-fontsize wd-color wd-card-ellipsis mb-1">{course.name}</p>
+                  <p className="wd-card-subheading-fontsize wd-card-subheading-col wd-card-ellipsis mb-1">
+                    {course._id}</p>
+                  <p className="wd-card-small-fontsize wd-card-subheading-col wd-card-ellipsis">
+                    {course.term}</p>
+                </Link>
+                <IoNewspaperOutline />
+              </div>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

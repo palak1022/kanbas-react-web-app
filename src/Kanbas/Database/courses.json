@@ -5,7 +5,6 @@
     "number": "RS4550",
     "startDate": "2023-01-10",
     "endDate": "2023-05-15"
-    
   },
   {
     "_id": "RS102",
@@ -20,8 +19,8 @@
     "number": "RS4570",
     "startDate": "2023-01-10",
     "endDate": "2023-05-15"
-  }
-  ,  {
+  },
+  {
     "_id": "RS104",
     "name": "Rocket Propulsion",
     "number": "RS4550",

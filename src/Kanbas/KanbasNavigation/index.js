@@ -1,49 +1,41 @@
-// src/Kanbas/KanbasNavigation/index.js
-import React, { useState, useEffect } from "react";
+import { BiUserCircle } from "react-icons/bi";
+import { RiDashboard3Fill } from "react-icons/ri";
+import { FaBook } from "react-icons/fa";
+import { BsFillCalendar2WeekFill } from "react-icons/bs";
 import { Link, useLocation } from "react-router-dom";
-import './index.css'; // Import the CSS file
+import "./index.css";
 
 function KanbasNavigation() {
-  const links = [
-    { label: "Account", path: "/Kanbas/Account", icon: "fas fa-user-circle" },
-    { label: "Dashboard", path: "/Kanbas/Dashboard", icon: "fas fa-tachometer-alt" },
-    { label: "Courses", path: "/Kanbas/Courses", icon: "fas fa-book account-icon" },
-    { label: "Calendar", path: "/Kanbas/Calendar", icon: "fas fa-calendar" },
-    { label: "Inbox", path: "/Kanbas/Account", icon: "fas fa-inbox"  },
-    { label: "History", path: "/Kanbas/Dashboard", icon: "fas fa-history"  },
-    { label: "Studio", path: "/Kanbas/Courses", icon: "fas fa-cube" },
-    { label: "Commons", path: "/Kanbas/Calendar",  icon: "fas fa-university"  },
-    { label: "Help", path: "/Kanbas/Calendar", icon: "fas fa-question-circle" }
-  ];
+  const links = ["Account", "Dashboard", "Courses", "Calendar"];
 
-  const { pathname } = useLocation();
-  const [activeLink, setActiveLink] = useState(pathname);
-
-  useEffect(() => {
-    setActiveLink(pathname);
-  }, [pathname]);
-
-  const handleClick = (path) => {
-    setActiveLink(path);
+  const linkToIconMap = {
+    Account: <BiUserCircle className="wd-icon" />,
+    Dashboard: <RiDashboard3Fill className="wd-icon" />,
+    Courses: <FaBook className="wd-icon" />,
+    Calendar: <BsFillCalendar2WeekFill className="wd-icon" />,
   };
 
+  const { pathname } = useLocation();
   return (
-    <div className="col-lg-1 col-sm-1 col-md-1">
-      <div className="sidebar">
-        <ul className="no-bullets">
-        {links.map((link, index) => (
-  <li key={index} className={pathname.endsWith(link.path) ? "li-active" : ""}>
-    <Link
-      to={link.path}
-      className={`account-link ${pathname.endsWith(link.path) ? "active-link" : ""}`}
-      onClick={() => handleClick(link.path)}
-    >
-      <i className={link.icon}></i> {link.label}
-    </Link>
-  </li>
-))}
-        </ul>
-      </div>
+    <div className="list-group wd-kanbas-navigation" >
+      <Link key="northeastern-logo" to={`/Kanbas/Dashboard`} className={'wd-bg-color text-center'}>
+        <img src={'../../images/northeastern_logo.png'} alt={'northeastern-logo'} className={'wd-northeastern-logo'} />
+      </Link>
+      {links.map((link, index) => (
+        <Link
+          key={index}
+          to={`/Kanbas/${link}`}
+          className={`list-group-item wd-bg-color-black ${pathname.includes(
+            link) && "active"}`}
+        >
+          <div className="d-block text-center">
+            {linkToIconMap[link]}
+          </div>
+          <div className="text-center wd-menu-text">
+            {link}
+          </div>
+        </Link>
+      ))}
     </div>
   );
 }
