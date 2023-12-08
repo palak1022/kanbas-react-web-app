@@ -1,39 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import db from "../../Database";
-import "./index.css";
-import { Button } from "bootstrap";
 
 function ModuleList() {
   const { courseId } = useParams();
-  const modules = db.modules;
+  const [modules, setModules] = useState(db.modules);
+  const [module, setModule] = useState({
+    name: "New Module",
+    description: "New Description",
+    course: courseId,
+  });
+
+  const addModule = () => {
+    setModules([
+      ...modules,
+      { ...module, _id: new Date().getTime().toString() }
+    ]);
+  };
+
+  const deleteModule = (moduleId) => {
+    setModules(modules.filter((mod) => mod._id !== moduleId));
+  };
+
+  const updateModule = () => {
+    setModules(
+      modules.map((m) => {
+        if (m._id === module._id) {
+          return module;
+        } else {
+          return m;
+        }
+      })
+    );
+  };
+
   return (
-    <div class="d-flex flex-column">
-      <div class="d-flex flex-row p-2">
-        <button type="button" class="btn btn-secondary wd-flex-grow module-button">Collapse All</button>
-        <button type="button" class="btn btn-secondary wd-flex-grow module-button">View Progress</button>
-        <button type="button" class="btn btn-secondary wd-flex-grow module-button dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Publish All</button>
-        <ul class="dropdown-menu">
-          <li class="dropdown-item">Action</li>
-          <li class="dropdown-item">Another action</li>
-          <li class="dropdown-item">Something else here</li>
-        </ul>
-        <button type="button" class="btn btn-danger wd-flex-grow module-button">+ Module</button>
-        <button type="button" class="btn btn-secondary wd-flex-grow module-button module-options-button">...</button>
-      </div>
-      <hr />
-      <ul className="list-group">
-        {
-          modules
-            .filter((module) => module.course === courseId)
-            .map((module, index) => (
-              <li key={index} className="list-group-item m-2 module-container rounded-0">
-                <h3 class="module-title">{module.name}</h3>
-                <p>{module.description}</p>
-              </li>
-            ))}
-      </ul>
-    </div>
+    <ul className="list-group">
+      <li className="list-group-item">
+        <button onClick={addModule}>Add</button>
+        <button onClick={updateModule}>Update</button>
+        ...
+      </li>
+      {modules
+        .filter((mod) => mod.course === courseId)
+        .map((mod, index) => (
+          <li key={index} className="list-group-item">
+            <button onClick={() => setModule(mod)}>Edit</button>
+            <button onClick={() => deleteModule(mod._id)}>Delete</button>
+            <h3>{mod.name}</h3>
+            <p>{mod.description}</p>
+            <p>{mod._id}</p>
+          </li>
+        ))}
+    </ul>
   );
 }
+
 export default ModuleList;
