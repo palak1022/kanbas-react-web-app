@@ -10,8 +10,8 @@ import {
 
 function ModuleList() {
   const { courseId } = useParams();
-  const modules = useSelector((state) => state.modules.modules);
-  const module = useSelector((state) => state.modules.module);
+  const modules = useSelector((state) => state.modules.modules); // Accessing 'modules' state from Redux
+  const module = useSelector((state) => state.modules.module); // Accessing 'module' state from Redux
   const dispatch = useDispatch();
 
   const handleAddModule = () => {
