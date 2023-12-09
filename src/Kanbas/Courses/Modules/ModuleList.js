@@ -1,55 +1,61 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import db from "../../Database";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+} from "./modulesReducer";
 
 function ModuleList() {
   const { courseId } = useParams();
-  const [modules, setModules] = useState(db.modules);
-  const [module, setModule] = useState({
-    name: "New Module",
-    description: "New Description",
-    course: courseId,
-  });
+  const modules = useSelector((state) => state.modules.modules);
+  const module = useSelector((state) => state.modules.module);
+  const dispatch = useDispatch();
 
-  const addModule = () => {
-    setModules([
-      ...modules,
-      { ...module, _id: new Date().getTime().toString() }
-    ]);
+  const handleAddModule = () => {
+    dispatch(addModule({ ...module, course: courseId }));
   };
 
-  const deleteModule = (moduleId) => {
-    setModules(modules.filter((mod) => mod._id !== moduleId));
+  const handleDeleteModule = (moduleId) => {
+    dispatch(deleteModule(moduleId));
   };
 
-  const updateModule = () => {
-    setModules(
-      modules.map((m) => {
-        if (m._id === module._id) {
-          return module;
-        } else {
-          return m;
-        }
-      })
-    );
+  const handleUpdateModule = () => {
+    dispatch(updateModule(module));
+  };
+
+  const handleSetModule = (selectedModule) => {
+    dispatch(setModule(selectedModule));
   };
 
   return (
     <ul className="list-group">
       <li className="list-group-item">
-        <button onClick={addModule}>Add</button>
-        <button onClick={updateModule}>Update</button>
-        ...
+        <button onClick={handleAddModule}>Add</button>
+        <button onClick={handleUpdateModule}>Update</button>
+        <input
+          value={module.name}
+          onChange={(e) =>
+            dispatch(setModule({ ...module, name: e.target.value }))
+          }
+        />
+        <textarea
+          value={module.description}
+          onChange={(e) =>
+            dispatch(setModule({ ...module, description: e.target.value }))
+          }
+        />
       </li>
       {modules
         .filter((mod) => mod.course === courseId)
         .map((mod, index) => (
           <li key={index} className="list-group-item">
-            <button onClick={() => setModule(mod)}>Edit</button>
-            <button onClick={() => deleteModule(mod._id)}>Delete</button>
+            <button onClick={() => handleSetModule(mod)}>Edit</button>
+            <button onClick={() => handleDeleteModule(mod._id)}>Delete</button>
             <h3>{mod.name}</h3>
             <p>{mod.description}</p>
-            <p>{mod._id}</p>
           </li>
         ))}
     </ul>
