@@ -40,7 +40,8 @@ function Kanbas() {
   };
 
   return (
-    
+    <Provider store={store}>
+
     <div className="d-flex">
       <KanbasNavigation />
       <div className="" style={{ flex: 1 }}>
@@ -73,6 +74,7 @@ function Kanbas() {
         </Routes>
       </div>
     </div>
+    </Provider>
   );
 }
 
