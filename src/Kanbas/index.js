@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Courses from "./Courses";
 import db from "./Database";
-import store from "./store";
+import store from "./Store";
 import { Provider } from "react-redux";
 
 
