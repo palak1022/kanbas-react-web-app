@@ -1,0 +1,264 @@
+
+.nav-bar{
+  background-color: black;
+  width: 116px;
+  height: 10000px;
+  
+  color: #fd0707;
+  list-style-type: none;
+  
+  list-style-type: none;
+
+
+}
+
+
+.image{
+  border-radius: 50px;
+}
+.li-active{
+  background-color: white;
+  width: 116px;
+  align-content: left;
+  list-style-type: none
+}
+
+
+
+
+/* Sidebar Styles */
+.sidebar {
+  width: 95px; /* Adjust as needed within the 75-85px range */
+  background-color: black;
+  padding: 10px 0;
+  text-align: center;
+  height: 2000px;
+  
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: red;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Active Link Styles */
+.active-link {
+  background-color: white;
+  color: red;
+}
+
+/* Account Icon Styles */
+.account-icon {
+  color: red;
+}
+
+.nav-link{
+  color: black;          /* Text color */
+  border-left: 2px solid black; /* Left border */
+}
+
+/* Remove bullet points from the list */
+ul.no-bullets {
+  list-style-type: none;
+}
+
+/* Add margin to the bottom of each list item (except the last one) */
+ul.no-bullets li:not(:last-child) {
+  margin-bottom: 5px; /* Adjust the value as needed */
+
+}
+
+.breadcrumb{
+  color: #fd0707;
+  --bs-breadcrumb-padding-x: 130px
+  
+ 
+}
+.breadcrumb .breadcrumb-item active{
+color: #fd0707;
+}
+.box{
+  background-color: white;
+
+}
+.tr{
+  margin-left: 1000px;
+  padding-left: 1000px;
+}
+.button{
+  float:right;
+  padding-right: 20px;
+}
+.list-group-item-secondary{
+  background-color: red;
+}
+.home{
+  text-decoration: none;
+  color: red;
+}
+.class{
+
+text-align: right ;
+  
+}
+.home{
+  list-style-type:  none;
+}
+.fa fa-check-circle{
+position: absolute ;
+left: 0;
+}
+.fontawesome{
+  position: absolute;
+  right: 300;
+  align-content: right;
+}
+.table table-bordered table-striped{
+  margin-left: 40px;
+  padding-right: 20px;
+}
+.box-2{
+  text-align: left;
+}
+
+.card-container {
+  
+  white-space: nowrap;
+}
+
+.card {
+  width: 250px;
+  display: inline-block;
+  margin-right: 10px; /* Optional: Add margin for spacing between cards */
+  margin-bottom: 10px; /* Optional: Add margin for spacing between rows */
+}
+@media screen and (min-width: 1200px) {
+  
+  .navigation-bar{
+    display:none
+  }
+}
+
+
+/* Media query for medium and small screens */
+@media screen and (max-width: 1200px) {
+  /* Hide the navigation bar on medium and small screens */
+  .sidebar{
+      display: none;
+  }
+  .home{
+    display: none;
+  }
+
+  /* Show breadcrumbs, buttons, module on medium and small screens */
+  
+  .class {
+      display: block;
+  }
+  .breadcrumb{
+    display: block;
+  }
+
+  /* Show course status only on medium screens, hide on small screens */
+  .course-status {
+      display: none;
+  }
+  .navigation-bar{
+    display:none
+  }
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+.sidebar{
+  display: none;
+}
+.home{
+  display: none;
+}
+.class {
+  display: block;
+}
+.course-status {
+  display: none;
+}
+.navigation-bar{
+  display:block;
+}
+.breadcrumb{
+  display: none;
+}
+}
+    /*
+  nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    /* Style for the main navigation links */
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Style for the horizontal dropdown menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 3000px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Style for vertical content inside the dropdown */
+    .dropdown-content a {
+      color: #fff;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #555;
+    }
