@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Befikar - School and Degree Information</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e3e4e8);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .tips {
+            flex: 1;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tip-box {
+            background: #ffffff;
+            border-left: 5px solid #4caf50;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .tip-box.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tips h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .question {
+            flex: 2;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ffffff, #fce4ec);
+            border: 1px solid #e3e4e8;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .question h2 {
+            color: #E91E63;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .question p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .info-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .info-group label {
+            font-size: 16px;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: flex-start;
+            position: relative;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-group label:hover {
+            background-color: #fce4ec;
+        }
+
+        .info-group input,
+        .info-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            background-color: #ffffff;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .info-group input:focus,
+        .info-group select:focus {
+            border-color: #E91E63;
+            box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
+        }
+
+        .info-button {
+            background-color: #E91E63;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: background-color 0.2s ease;
+        }
+
+        .info-button:hover {
+            background-color: #d81b60;
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            width: 260px;
+            text-align: left;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .tooltip.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .submit-button,
+        .previous-button {
+            background-color: #E91E63;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover,
+        .previous-button:hover {
+            background-color: #d81b60;
+        }
+
+        .previous-button {
+            background-color: #4CAF50;
+            margin-top: 10px;
+        }
+
+        .previous-button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="tips">
+            <h3>Tips from the Nest</h3>
+            <div class="tip-box" id="tip1">
+                Only include the highest degree that you've earned or are in the process of earning.
+            </div>
+            <div class="tip-box" id="tip2">
+                What if I'm not enrolled full time? Certain lenders on the Sparrow platform will lend to students who are enrolled less than full time.
+            </div>
+            <div class="tip-box" id="tip3">
+                Why can't I find my school? Double check the spelling of your school. For example, if you searched for “UNC” try “University of North Carolina” instead.
+            </div>
+            <div class="tip-box" id="tip4">
+                Does graduation date affect eligibility? Lenders are typically willing to provide loans to Freshman, Sophomores, Juniors, Seniors, Graduates, PhDs, and pre-professionals.
+            </div>
+        </div>
+        <div class="question">
+            <h2>School and Degree Information</h2>
+            <p>Please provide the details of your school and the degree you are pursuing.</p>
+            <div class="info-group">
+                <label for="school-name">
+                    School Name
+                    <input type="text" id="school-name" name="school-name">
+                </label>
+                <label for="degree">
+                    Degree
+                    <input type="text" id="degree" name="degree">
+                </label>
+                <label for="enrollment-status">
+                    Enrollment Status
+                    <select id="enrollment-status" name="enrollment-status">
+                        <option value="" selected>Select</option>
+                        <option value="full-time">Full Time</option>
+                        <option value="part-time">Part Time</option>
+                        <option value="half-time">Half Time</option>
+                    </select>
+                </label>
+            </div>
+            <button class="previous-button" onclick="goBack()">Previous step</button>
+            <button class="submit-button" onclick="handleSubmit()">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        function showTipBox(id, delay) {
+            setTimeout(() => {
+                document.getElementById(id).classList.add('active');
+            }, delay);
+        }
+
+        function handleSubmit() {
+            const schoolName = document.getElementById('school-name').value;
+            const degree = document.getElementById('degree').value;
+            const enrollmentStatus = document.getElementById('enrollment-status').value;
+
+            if (!schoolName || !degree || !enrollmentStatus) {
+                alert('Please provide all required information.');
+                return;
+            }
+
+            location.href = 'India.html'; // Replace with the actual next page URL
+        }
+
+        function goBack() {
+            history.back();
+        }
+
+        // Show tip boxes sequentially
+        showTipBox('tip1', 1000);
+        showTipBox('tip2', 2000);
+        showTipBox('tip3', 3000);
+        showTipBox('tip4', 4000);
+    </script>
+</body>
+
+</html>

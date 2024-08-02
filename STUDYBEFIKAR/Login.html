@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Befikar - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #E91E63;
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .login-form input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form button {
+            background-color: #E91E63;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-form button:hover {
+            background-color: #d81b60;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .options input {
+            margin-right: 5px;
+        }
+        .google-login {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .google-login button {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .google-login button:hover {
+            background-color: #357ae8;
+        }
+        .already-user {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .already-user a {
+            color: #E91E63;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const emailInput = document.querySelector('input[type="text"]');
+            const passwordInput = document.querySelector('input[type="password"]');
+            const rememberMeCheckbox = document.querySelector('input[type="checkbox"]');
+
+            // Load saved credentials if "Remember me" was checked
+            if (localStorage.getItem('rememberMe') === 'true') {
+                emailInput.value = localStorage.getItem('email');
+                passwordInput.value = localStorage.getItem('password');
+                rememberMeCheckbox.checked = true;
+            }
+
+            // Form submission event
+            document.querySelector('form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate email format
+                const email = emailInput.value;
+                const password = passwordInput.value;
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+                if (!emailPattern.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+
+                // Save credentials if "Remember me" is checked
+                if (rememberMeCheckbox.checked) {
+                    localStorage.setItem('email', email);
+                    localStorage.setItem('password', password);
+                    localStorage.setItem('rememberMe', 'true');
+                } else {
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('password');
+                    localStorage.setItem('rememberMe', 'false');
+                }
+
+                // Redirect to Form1.html after successful login
+                window.location.href = 'Form1.html';
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Study Befikar</h1>
+        <form class="login-form">
+            <input type="text" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <div class="options">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="google-login">
+            <button onclick="location.href='#'">Login with Google</button>
+        </div>
+        <div class="already-user">
+            <p>Already a user? <a href="#">Login through Google</a></p>
+        </div>
+    </div>
+</body>
+</html>

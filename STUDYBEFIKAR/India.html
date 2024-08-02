@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Application - India</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+        body {
+            
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            height: 100vh; /* Full viewport height */
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; /* Enable vertical scrolling */
+            max-height: 80vh; /* Limit container height */
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+            color: #333;
+        }
+        .tab.active {
+            border-color: #4CAF50;
+            font-weight: bold;
+            font-style: inherit;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 30px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .navbar a {
+            text-decoration: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            color: #333;
+        }
+        .navbar a.completed {
+            background-color: pink;
+            color: black;
+        }
+        .content {
+            display: none;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .content.active {
+            display: block;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+            text-align: center; /* Center dropdown content */
+        }
+        .dropdown h3 {
+            margin: 0;
+            cursor: pointer;
+            color: #4CAF50;
+            font-size: 18px;
+        }
+        .dropdown-content {
+            display: none;
+            margin-top: 10px;
+            text-align: left; /* Align text inside dropdown */
+        }
+        .upload-box {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            flex-direction: column;
+            margin-bottom: 20px;
+            margin: 0 auto; /* Center upload box */
+        }
+        .upload-box input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .upload-box .tick {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 30px solid #4CAF50;
+            display: none;
+        }
+        .upload-box.uploaded .tick {
+            display: block;
+        }
+        .file-info {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .file-info .file-name {
+            margin-right: 10px;
+        }
+        .file-info a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .file-info .delete,
+        .file-info .add-file {
+            margin-left: 10px;
+            color: red;
+            cursor: pointer;
+        }
+        .finish-button {
+            display: none;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .finish-button.visible {
+            display: block;
+        }
+        .tip {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #eaf4ea;
+            border: 1px solid #b2d9b5;
+            border-radius: 5px;
+            font-size: 20px;
+            color: black;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        function switchTab(event, tabName) {
+            var tabs = document.querySelectorAll('.tab');
+            var contents = document.querySelectorAll('.content');
+            
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function toggleDropdown(event) {
+            var dropdownContent = event.currentTarget.nextElementSibling;
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function handleFileUpload(event) {
+            var uploadBox = event.currentTarget.closest('.upload-box');
+            uploadBox.classList.add('uploaded');
+            var file = event.currentTarget.files[0];
+            var fileName = file.name;
+            var fileURL = URL.createObjectURL(file);
+            var fileInfo = uploadBox.nextElementSibling;
+            fileInfo.querySelector('.file-name').textContent = fileName;
+            fileInfo.querySelector('.file-download').href = fileURL;
+            fileInfo.style.display = 'flex';
+            checkAllUploads();
+        }
+
+        function updateNavbar(type) {
+            var navbarLink = document.getElementById(type + 'Link');
+            navbarLink.classList.add('completed');
+        }
+
+        function deleteFile(event) {
+            var fileInfo = event.currentTarget.closest('.file-info');
+            var uploadBox = fileInfo.previousElementSibling;
+            uploadBox.classList.remove('uploaded');
+            fileInfo.style.display = 'none';
+            fileInfo.querySelector('.file-name').textContent = '';
+            fileInfo.querySelector('.file-download').href = '#';
+            checkAllUploads();
+        }
+
+        function addFile(event) {
+            var dropdownContent = event.currentTarget.closest('.dropdown-content');
+            var uploadBox = document.createElement('div');
+            uploadBox.classList.add('upload-box');
+            uploadBox.setAttribute('data-type', dropdownContent.dataset.type);
+            uploadBox.onclick = function() {
+                uploadBox.querySelector('input[type=file]').click();
+            };
+            uploadBox.innerHTML = `
+                <input type="file" onchange="handleFileUpload(event)">
+                <div class="tick"></div>
+                <p>Upload New File</p>
+            `;
+            dropdownContent.insertBefore(uploadBox, event.currentTarget);
+        }
+
+        function checkAllUploads() {
+            var sections = ['academic', 'kycStudent', 'loanApp', 'kycCoapplicant', 'personalInfo'];
+            var allCompleted = true;
+            
+            sections.forEach(function(section) {
+                var sectionElement = document.querySelector('[data-type="' + section + '"]');
+                var allUploads = sectionElement.querySelectorAll('.upload-box');
+                var allUploaded = true;
+                
+                allUploads.forEach(function(uploadBox) {
+                    if (!uploadBox.classList.contains('uploaded')) {
+                        allUploaded = false;
+                    }
+                });
+                
+                if (allUploaded) {
+                    updateNavbar(section);
+                } else {
+                    allCompleted = false;
+                    var navbarLink = document.getElementById(section + 'Link');
+                    navbarLink.classList.remove('completed');
+                }
+            });
+
+            var finishButton = document.getElementById('finishButton');
+            if (allCompleted) {
+                finishButton.classList.add('visible');
+            } else {
+                finishButton.classList.remove('visible');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab(event, 'student')">Student</div>
+        <div class="tab" onclick="switchTab(event, 'coapplicant')">Co-Applicant</div>
+    </div>
+    <div class="navbar">
+        <a href="#student" id="academicLink" onclick="switchTab(event, 'student')">Academic Documents</a>
+        <a href="#student" id="kycStudentLink" onclick="switchTab(event, 'student')">Student KYC Documents</a>
+        <a href="#student" id="loanAppLink" onclick="switchTab(event, 'student')">Loan Application</a>
+        <a href="#coapplicant" id="kycCoapplicantLink" onclick="switchTab(event, 'coapplicant')">Co-Applicant KYC Documents</a>
+        <a href="#coapplicant" id="personalInfoLink" onclick="switchTab(event, 'coapplicant')">Personal Information</a>
+    </div>
+    <div id="student" class="content active">
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown(event)">Academic Documents</h3>
+            <div class="dropdown-content" data-type="academic">
+                <div class="upload-box" data-type="academic" onclick="document.getElementById('tenthCertUpload').click()">
+                    <input type="file" id="tenthCertUpload" onchange="handleFileUpload(event)">
+                    <div class="tick"></div>
+                    <p>Upload 10th Certificate</p>
+                </div>
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <a href="#" class="file-download" download>Download</a>
+                    <span class="delete" onclick="deleteFile(event)">Delete</span>
+                </div>
+                <div class="tip">Make sure your document is clear and legible.</div>
+                <div class="upload-box" data-type="academic" onclick="document.getElementById('twelfthCertUpload').click()">
+                    <input type="file" id="twelfthCertUpload" onchange="handleFileUpload(event)">
+                    <div class="tick"></div>
+                    <p>Upload 12th Certificate</p>
+                </div>
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <a href="#" class="file-download" download>Download</a>
+                    <span class="delete" onclick="deleteFile(event)">Delete</span>
+                </div>
+                <div class="tip">Ensure that the file size does not exceed the maximum limit.</div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown(event)">Student KYC Document</h3>
+            <div class="dropdown-content" data-type="kycStudent">
+                <div class="upload-box" data-type="kycStudent" onclick="document.getElementById('aadhaarUpload').click()">
+                    <input type="file" id="aadhaarUpload" onchange="handleFileUpload(event)">
+                    <div class="tick"></div>
+                    <p>Upload Aadhaar Card</p>
+                </div>
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <a href="#" class="file-download" download>Download</a>
+                    <span class="delete" onclick="deleteFile(event)">Delete</span>
+                </div>
+                <div class="tip">Check that the document is up-to-date and valid.</div>
+                <div class="upload-box" data-type="kycStudent" onclick="document.getElementById('passportUpload').click()">
+                    <input type="file" id="passportUpload" onchange="handleFileUpload(event)">
+                    <div class="tick"></div>
+                    <p>Upload Passport</p>
+                </div>
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <a href="#" class="file-download" download>Download</a>
+                    <span class="delete" onclick="deleteFile(event)">Delete</span>
+                </div>
+                <div class="tip">Make sure to upload a clear and complete image of your passport.</div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown(event)">Loan Application</h3>
+            <div class="dropdown-content" data-type="loanApp">
+                <div class="upload-box" data-type="loanApp" onclick="document.getElementById('loanAppFormUpload').click()">
+                    <input type="file" id="loanAppFormUpload" onchange="handleFileUpload(event)">
+                    <div class="tick"></div>
+                    <p>Upload Loan Application Form</p>
+                </div>
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <a href="#" class="file-download" download>Download</a>
+                    <span class="delete" onclick="deleteFile(event)">Delete</span>
+                </div>
+                <div class="tip">Ensure that you upload the completed and signed loan application form.</div>
+            </div>
+        </div>
+    </div>
+    <div id="coapplicant" class="content">
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown(event)">Co-Applicant KYC Document</h3>
+            <div class="dropdown-content" data-type="kycCoapplicant">
+                <div class="upload-box" data-type="kycCoapplicant" onclick="document.getElementById('coapplicantAadhaarUpload').click()">
+                    <input type="file" id="coapplicantAadhaarUpload" onchange="handleFileUpload(event)">
+                    <div class="tick"></div>
+                    <p>Upload Co-Applicant Aadhaar Card</p>
+                </div>
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <a href="#" class="file-download" download>Download</a>
+                    <span class="delete" onclick="deleteFile(event)">Delete</span>
+                </div>
+                <div class="tip">Ensure that the Aadhaar card is valid and not expired.</div>
+                <div class="upload-box" data-type="kycCoapplicant" onclick="document.getElementById('coapplicantPassportUpload').click()">
+                    <input type="file" id="coapplicantPassportUpload" onchange="handleFileUpload(event)">
+                    <div class="tick"></div>
+                    <p>Upload Co-Applicant Passport</p>
+                </div>
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <a href="#" class="file-download" download>Download</a>
+                    <span class="delete" onclick="deleteFile(event)">Delete</span>
+                </div>
+                <div class="tip">Make sure that the passport photo is clear and all information is readable.</div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown(event)">Personal Information</h3>
+            <div class="dropdown-content" data-type="personalInfo">
+                <div class="upload-box" data-type="personalInfo" onclick="document.getElementById('personalInfoUpload').click()">
+                    <input type="file" id="personalInfoUpload" onchange="handleFileUpload(event)">
+                    <div class="tick"></div>
+                    <p>Upload Personal Information</p>
+                </div>
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <a href="#" class="file-download" download>Download</a>
+                    <span class="delete" onclick="deleteFile(event)">Delete</span>
+                </div>
+                <div class="tip">Upload a document containing your personal information that is accurate and up-to-date.</div>
+            </div>
+        </div>
+    </div>
+    <button id="finishButton" class="finish-button" onclick="window.location.href='India1.html'">Finish</button>
+</div>
+
+</body>
+</html>

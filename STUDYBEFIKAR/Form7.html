@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Befikar - Agreement Form</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e3e4e8);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 80%;
+            max-width: 800px;
+            box-sizing: border-box;
+            text-align: center;
+            z-index: 1;
+        }
+        h2 {
+            color: #E91E63;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .agree-button {
+            background-color: #E91E63;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .agree-button:hover {
+            background-color: #d81b60;
+        }
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-size: 16px;
+            color: #333;
+        }
+        .form-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .links {
+            color: #E91E63;
+            text-decoration: none;
+        }
+        .links:hover {
+            text-decoration: underline;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+        .gif-container {
+            text-align: center;
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            max-width: 90%;
+        }
+        .gif-container img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .gif-message {
+            font-size: 18px;
+            color: #E91E63;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Terms and Condition </h2>
+        <div class="form-group">
+            <p>By clicking “I agree and submit”, I authorize Study Befikar and its Providers to obtain my credit file, as well as the credit file of my cosigner or borrower, if applicable, from one or more consumer reporting agencies and conduct a soft credit check to pre-qualify me. I authorize Study Befikar to share my information as well as information about my cosigner or borrower, if applicable, with its Providers and Partners.</p>
+        </div>
+        <div class="form-group">
+            <p>I have read and agree to Study Befikar's <a href="#" class="links">Terms of Service</a> and <a href="#" class="links">Privacy Policy</a>. I agree to receive all communications and disclosures from Study Befikar and its Providers electronically.</p>
+        </div>
+        <div class="form-group">
+            <p>I acknowledge that this form is not for a loan application and that receiving pre-qualified rates does not guarantee approval or receipt of a loan. Further, I understand that pre-qualified rates are estimates and not guaranteed by a lender. By accepting a pre-qualified rate and applying for credit with a lender, I understand that a hard credit inquiry may occur which may impact my credit file.</p>
+        </div>
+        <div class="form-group">
+            <p>I understand that if I submit a joint request for pre-qualification, personal information provided during this process will be shared between the borrower and the cosigner.</p>
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="agreeCheckbox"> I agree and submit
+            </label>
+        </div>
+        <button class="agree-button" onclick="submitForm()">Submit</button>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="gif-container">
+            <img src="https://example.com/your-small-image.png" alt="Pre-qualification">
+            <div class="gif-message">Checking if you are pre-qualified for any  banks</div>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const checkbox = document.getElementById('agreeCheckbox');
+            if (checkbox.checked) {
+                // Show the overlay with the message
+                const overlay = document.getElementById('overlay');
+                overlay.style.display = 'flex';
+
+                // Wait for 10 seconds before redirecting
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html'; // Redirect to the dashboard page
+                }, 3000); // 10 seconds
+            } else {
+                alert('Please agree to the terms before submitting.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Study Befikar</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #E91E63;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .bank-list {
+            list-style: none;
+            padding: 0;
+        }
+        .bank-item {
+            background: #ffffff;
+            border: 1px solid #e3e4e8;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .bank-item button {
+            background-color: #E91E63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .bank-item button:hover {
+            background-color: #d81b60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prequalified Banks</h1>
+        <ul class="bank-list" id="bankList"></ul>
+    </div>
+
+    <script>
+        function displayPrequalifiedBanks() {
+            const hasCosigner = localStorage.getItem('hasCosigner');
+            const bankList = document.getElementById('bankList');
+            let banks = [];
+
+            if (hasCosigner === 'yes') {
+                banks = [
+                    { name: 'DISCOVER', url: 'https://www.discover.com/student-loans/' },
+                    { name: 'SALLI MAE', url: 'https://apply2.salliemae.com/s/intro-page?LoanFinder=Y&DTD_CELL=GO99999CHRME&InstID=&UserType=BO&EntryPointName=AXPRedirect&NavPoint=BorrowerLogin&TradingPartnerCode=AltLoginSLMA&TimeStamp=8%2F2%2F2024%203%3A54%3A17%20AM' },
+                    { name: 'EARNEST', url: 'https://www.earnest.com/student-loans' }
+                ];
+            } else if (hasCosigner === 'no') {
+                banks = [
+                    { name: 'PRODIGY', url: 'https://prodigyfinance.com/?utm_source=Study-Befikar&utm_medium=website&utm_content=homepage&utm_campaign=partners-Study-Befikar-referral-2024' },
+                    { name: 'MPOWER', url: 'https://app.mpowerfinancing.com/?utm_source=studybefikar&utm_medium=link&utm_campaign=partnerlink&utm_content=1/14/2024--eligibility' },
+                    { name: 'LEAP FINANCE', url: 'https://leapfinance.com/' },
+                    { name: 'AVANSE', url: 'https://www.avanse.com/' }
+                ];
+            }
+
+            bankList.innerHTML = banks.map(bank => `
+                <li class="bank-item">
+                    ${bank.name}
+                    <button onclick="window.location.href='${bank.url}'">Apply Now</button>
+                </li>
+            `).join('');
+        }
+
+        window.onload = displayPrequalifiedBanks;
+    </script>
+</body>
+</html>

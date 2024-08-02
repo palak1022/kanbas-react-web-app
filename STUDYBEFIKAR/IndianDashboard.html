@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(to right, #c8aed3, rgb(209, 75, 138));
+        }
+        .heading {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+        .dashboard-container {
+            width: 90%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .table-container {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .cancel-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #dc3545;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .cancel-button:hover {
+            background-color: #c82333;
+            transform: scale(1.02);
+        }
+        .clear-button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #dc3545;
+            color: #fff;
+            transition: background-color 0.3s;
+            align-self: center;
+        }
+        .clear-button:hover {
+            background-color: #c82333;
+        }
+        .navigation-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .navigation-bar a {
+            color: #333;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: color 0.3s;
+        }
+        .navigation-bar a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="heading">Dashboard</div>
+
+<div class="dashboard-container">
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Banks Applied To</th>
+                    <th>Loan Account Number</th>
+                    <th>Loan Amount</th>
+                    <th>Rate of Interest</th>
+                    <th>Application Status</th>
+                    <th>Loan Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="banksTableBody">
+                <!-- Dynamic rows will be appended here -->
+            </tbody>
+        </table>
+        <button class="clear-button" onclick="clearBanks()">Clear All</button>
+    </div>
+
+    <div class="navigation-bar">
+        <a href="#">Home</a>
+        <a href="#">Documents Uploaded</a>
+        <a href="#">User Profile</a>
+    </div>
+</div>
+
+<script>
+    function loadSelectedBanks() {
+        let banks = JSON.parse(localStorage.getItem('selectedBanks')) || [];
+        let tableBody = document.getElementById('banksTableBody');
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        banks.forEach((bank, index) => {
+            let row = document.createElement('tr');
+
+            // Create cells for each column
+            let bankNameCell = document.createElement('td');
+            bankNameCell.textContent = bank.bankName;
+            row.appendChild(bankNameCell);
+
+            let loanAccountNumberCell = document.createElement('td');
+            let loanAccountNumberInput = document.createElement('input');
+            loanAccountNumberInput.type = 'text';
+            loanAccountNumberInput.value = bank.loanAccountNumber || '';
+            loanAccountNumberCell.appendChild(loanAccountNumberInput);
+            row.appendChild(loanAccountNumberCell);
+
+            let loanAmountCell = document.createElement('td');
+            let loanAmountInput = document.createElement('input');
+            loanAmountInput.type = 'text';
+            loanAmountInput.value = bank.loanAmount || '';
+            loanAmountCell.appendChild(loanAmountInput);
+            row.appendChild(loanAmountCell);
+
+            let rateOfInterestCell = document.createElement('td');
+            let rateOfInterestInput = document.createElement('input');
+            rateOfInterestInput.type = 'text';
+            rateOfInterestInput.value = bank.rateOfInterest || '';
+            rateOfInterestCell.appendChild(rateOfInterestInput);
+            row.appendChild(rateOfInterestCell);
+
+            let applicationStatusCell = document.createElement('td');
+            let applicationStatusInput = document.createElement('input');
+            applicationStatusInput.type = 'text';
+            applicationStatusInput.value = bank.applicationStatus || '';
+            applicationStatusCell.appendChild(applicationStatusInput);
+            row.appendChild(applicationStatusCell);
+
+            let loanStatusCell = document.createElement('td');
+            let loanStatusInput = document.createElement('input');
+            loanStatusInput.type = 'text';
+            loanStatusInput.value = bank.loanStatus || '';
+            loanStatusCell.appendChild(loanStatusInput);
+            row.appendChild(loanStatusCell);
+
+            // Add Cancel button
+            let actionsCell = document.createElement('td');
+            let cancelButton = document.createElement('button');
+            cancelButton.textContent = 'Cancel';
+            cancelButton.className = 'cancel-button';
+            cancelButton.onclick = () => cancelBank(index);
+            actionsCell.appendChild(cancelButton);
+            row.appendChild(actionsCell);
+
+            tableBody.appendChild(row);
+        });
+    }
+
+    function clearBanks() {
+        localStorage.removeItem('selectedBanks');
+        loadSelectedBanks();
+    }
+
+    function cancelBank(index) {
+        let banks = JSON.parse(localStorage.getItem('selectedBanks')) || [];
+        banks.splice(index, 1); // Remove the selected bank
+        localStorage.setItem('selectedBanks', JSON.stringify(banks));
+        loadSelectedBanks();
+    }
+
+    window.onload = loadSelectedBanks;
+</script>
+
+</body>
+</html>

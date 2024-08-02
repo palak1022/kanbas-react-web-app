@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Befikar - Borrower or Cosigner</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e3e4e8); /* Soft gradient background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            width: 90%;
+            height: 100%;
+            max-width: 1200px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .tips {
+            flex: 1;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .tip-box {
+            background: #ffffff;
+            border-left: 5px solid #4caf50; /* Green accent border */
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .tip-box.active {
+            opacity: 1;
+        }
+        .tips h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .question {
+            flex: 2;
+            text-align: center;
+            padding-left: 20px;
+            border-left: 2px solid #e3e4e8;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+        }
+        .question h2 {
+            color: #E91E63;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .question p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Increased spacing between options */
+        }
+        .radio-group label {
+            font-size: 16px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+            padding-right: 60px; /* Added padding for the 'i' button */
+        }
+        .radio-group label:hover {
+            background-color: #fce4ec; /* Light pink background on hover */
+        }
+        .radio-group input {
+            margin-right: 10px;
+        }
+        .radio-group .info-button {
+            background-color: #E91E63;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: background-color 0.2s ease;
+        }
+        .info-button:hover {
+            background-color: #d81b60;
+        }
+        .tooltip {
+            display: none;
+            position: absolute;
+            top: -60px; /* Adjusted for better positioning */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            width: 260px;
+            text-align: left;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tooltip.active {
+            display: block;
+            opacity: 1;
+        }
+        .submit-button {
+            background-color: #E91E63;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #d81b60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tips">
+            <h3>Tips from the Nest</h3>
+            <div class="tip-box" id="tip1">
+                If you’re seeking a loan for your education, choose "Borrower." If you want to assist someone else in qualifying, select "Cosigner."
+            </div>
+            <div class="tip-box" id="tip2">
+                <strong>What is a cosigner?</strong><br>
+                A cosigner is someone who agrees to take legal responsibility for the loan if the borrower cannot make payments.
+            </div>
+            <div class="tip-box" id="tip3">
+                <strong>Do I need a cosigner?</strong><br>
+                While a cosigner is not necessary for pre-qualification, having a reliable cosigner may boost your chances of approval.
+            </div>
+            <div class="tip-box" id="tip4">
+                <strong>Can I add a cosigner later?</strong><br>
+                Yes! You can add a cosigner after your initial application if needed.
+            </div>
+        </div>
+        <div class="question" id="questionContainer">
+            <h2 id="questionTitle">Are You a Borrower or Cosigner?</h2>
+            <p id="questionDescription">Choose the role that best describes you:</p>
+            <div class="radio-group" id="radioGroup">
+                <label>
+                    <input type="radio" name="role" value="borrower"> Borrower
+                    <button class="info-button" onmouseover="showTooltip('borrower')" onmouseout="hideTooltip('borrower')">i</button>
+                    <div class="tooltip" id="borrower-tooltip">
+                        A borrower is generally a student seeking a loan for education.
+                    </div>
+                </label>
+                <label>
+                    <input type="radio" name="role" value="cosigner"> Cosigner
+                    <button class="info-button" onmouseover="showTooltip('cosigner')" onmouseout="hideTooltip('cosigner')">i</button>
+                    <div class="tooltip" id="cosigner-tooltip">
+                        A cosigner is typically a parent or guardian who agrees to be responsible for the loan if the borrower is unable to make payments.
+                    </div>
+                </label>
+            </div>
+            <button class="submit-button" onclick="handleSubmit()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        function showTooltip(role) {
+            document.getElementById(`${role}-tooltip`).classList.add('active');
+        }
+
+        function hideTooltip(role) {
+            document.getElementById(`${role}-tooltip`).classList.remove('active');
+        }
+
+        function showTipBox(id, delay) {
+            setTimeout(() => {
+                document.getElementById(id).classList.add('active');
+            }, delay);
+        }
+
+        function handleSubmit() {
+            const selectedRole = document.querySelector('input[name="role"]:checked');
+            if (selectedRole) {
+                // Redirect to Form5.html if role is selected
+                location.href = 'Uni.html';
+            } else {
+                alert('Please select an option.');
+            }
+        }
+
+        function adjustQuestionBasedOnCurrency() {
+            const selectedCurrency = localStorage.getItem('selectedCurrency');
+            const questionTitle = document.getElementById('questionTitle');
+            const questionDescription = document.getElementById('questionDescription');
+            const radioGroup = document.getElementById('radioGroup');
+
+            if (selectedCurrency === 'USD') {
+                questionTitle.innerText = 'Do You Have a Cosigner?';
+                questionDescription.innerText = 'Please select whether you have a cosigner or not:';
+                radioGroup.innerHTML = `
+                    <label>
+                        <input type="radio" name="role" value="yes"> Yes
+                        <button class="info-button" onmouseover="showTooltip('cosigner')" onmouseout="hideTooltip('cosigner')">i</button>
+                        <div class="tooltip" id="cosigner-tooltip">
+                            A cosigner is typically a parent or guardian who agrees to be responsible for the loan if the borrower is unable to make payments.
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="no"> No
+                        <button class="info-button" onmouseover="showTooltip('nocosigner')" onmouseout="hideTooltip('nocosigner')">i</button>
+                        <div class="tooltip" id="nocosigner-tooltip">
+                            No cosigner means you will be solely responsible for repaying the loan.
+                        </div>
+                    </label>
+                `;
+            } else if (selectedCurrency === 'INR') {
+                // Restore to original "Borrower or Cosigner" question
+                questionTitle.innerText = 'Are You a Borrower or Cosigner?';
+                questionDescription.innerText = 'Choose the role that best describes you:';
+                radioGroup.innerHTML = `
+                    <label>
+                        <input type="radio" name="role" value="borrower"> Borrower
+                        <button class="info-button" onmouseover="showTooltip('borrower')" onmouseout="hideTooltip('borrower')">i</button>
+                        <div class="tooltip" id="borrower-tooltip">
+                            A borrower is generally a student seeking a loan for education.
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="cosigner"> Cosigner
+                        <button class="info-button" onmouseover="showTooltip('cosigner')" onmouseout="hideTooltip('cosigner')">i</button>
+                        <div class="tooltip" id="cosigner-tooltip">
+                            A cosigner is typically a parent or guardian who agrees to be responsible for the loan if the borrower is unable to make payments.
+                        </div>
+                    </label>
+                `;
+            }
+        }
+
+        window.onload = function() {
+            adjustQuestionBasedOnCurrency();
+            // Show tip boxes with a delay for better user experience
+            showTipBox('tip1', 1000);
+            showTipBox('tip2', 3000);
+            showTipBox('tip3', 5000);
+            showTipBox('tip4', 7000);
+        }
+    </script>
+</body>
+</html>
